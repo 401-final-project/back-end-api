@@ -12,7 +12,7 @@ const router = express.Router();
 router.param('model', modelFinder);
 
 // API Routes
-// router.get('/api/v1/:model', handleGetAll);
+router.get('/api/v1/:model', handleGetAll);
 // router.post('/api/v1/:model', handlePost);
 
 router.post('/api/v1/find-or-create-:model', handleFindOrCreate);

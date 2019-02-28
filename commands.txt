@@ -24,7 +24,12 @@ https://github.com/codefellows/seattle-javascript-401d28/blob/master/reference/m
         Heroku style
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-echo '{"name":"test"}' | http post https://api-with-authentication.herokuapp.com/api/v1/users
+GET 
+http https://fl-401-final-back-end-api.herokuapp.com/api/v1/users
+
+
+echo '{"userId":52222, "name":"test"}' | http post https://fl-401-final-back-end-api.herokuapp.com/api/v1/find-or-create-users
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ************************************************************************************
