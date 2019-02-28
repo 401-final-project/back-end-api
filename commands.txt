@@ -1,0 +1,40 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Local style
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+POST requests:
+echo '{"name":"test"}' | http post :3002/api/v1/users
+
+GET requests
+http :3002/api/v1/users
+
+http :3002/api/v1/users/5c77a03bc478e976df90d760
+
+PUT requests
+echo '{"name":"tester"}' | http put :3002/api/v1/users/5c77a03bc478e976df90d760
+
+
+DELETE requests:
+http delete :3002/api/v1/users/5c77a03bc478e976df90d760
+
+Mongo cheatsheet:
+https://github.com/codefellows/seattle-javascript-401d28/blob/master/reference/mongo-cheatsheet.md
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Heroku style
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+echo '{"name":"test"}' | http post https://api-with-authentication.herokuapp.com/api/v1/users
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+************************************************************************************
+
+Database setup:
+
+.env file:
+MONGODB_URI=mongodb://localhost:27017/users
+PORT=3002
+
+
+************************************************************************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
