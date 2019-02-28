@@ -16,8 +16,8 @@ class Model {
    * @param _id {string} optional mongo record id
    * @returns {*}
    */
-  get(_id) {
-    let queryObject = _id ? {_id} : {};
+  get(userId) {
+    let queryObject = userId ? {userId} : {};
     return this.schema.find(queryObject);
   }
 

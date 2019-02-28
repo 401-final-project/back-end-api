@@ -19,8 +19,8 @@ router.post('/api/v1/find-or-create-:model', handleFindOrCreate);
 
 async function handleFindOrCreate(request,response,next) {
 
-    // if db has id , return it
-    const data = await request.model.get(request.params.id);
+    const data = await request.model.get(request.body.userId);
+
     const user = data[0];
 
     if(user) {
