@@ -12,8 +12,25 @@ const router = express.Router();
 router.param('model', modelFinder);
 
 // API Routes
-router.get('/api/v1/:model', handleGetAll);
-router.post('/api/v1/:model', handlePost);
+// router.get('/api/v1/:model', handleGetAll);
+// router.post('/api/v1/:model', handlePost);
+
+router.post('/api/v1/find-or-create-:model', handleFindOrCreate);
+
+async function handleFindOrCreate(request,response,next) {
+
+    // if db has id , return it
+    const data = await request.model.get(request.params.id);
+    const user = data[0];
+
+    if(user) {
+      response.status(200).json(user)
+    } else {
+      request.model.post(request.body)
+      .then( result => response.status(200).json(result) )
+      .catch( next );
+    }
+}
 
 router.get('/api/v1/:model/:id', handleGetOne);
 router.put('/api/v1/:model/:id', handlePut);
@@ -33,15 +50,11 @@ function handleGetAll(request,response,next) {
 }
 
 function handleGetOne(request,response,next) {
-  request.model.get(request.params.id)
-    .then( result => response.status(200).json(result[0]) )
-    .catch( next );
+
 }
 
 function handlePost(request,response,next) {
-  request.model.post(request.body)
-    .then( result => response.status(200).json(result) )
-    .catch( next );
+
 }
 
 function handlePut(request,response,next) {
