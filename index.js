@@ -18,8 +18,8 @@ global.Q = new q();
 // setInterval(() => {
 //   Q.publish('database', 'create', {id:55});
 // }, 10000*Math.random());
-setInterval(() => {
-  Q.publish('users', 'destroy', {id:55});
-}, 10000*Math.random());
+// setInterval(() => {
+//   Q.publish('users', 'destroy', {id:55});
+// }, 10000*Math.random());
 
 require('./src/app.js').start(process.env.PORT);

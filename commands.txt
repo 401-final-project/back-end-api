@@ -4,9 +4,12 @@
 
 POST requests:
 echo '{"name":"test"}' | http post :3002/api/v1/users
+echo '{"userId":52222, "name":"test"}' | http post :3002/api/v1/find-or-create-users
+echo '{"userId":"3456543","name":"Fletcher","phone":"3334446666","linkedin":"asdFletcher","facebook":"facebooker","pinterest":"interesting"}' | http post :3002/api/v1/find-or-create-users
 
 GET requests
 http :3002/api/v1/users
+http://localhost:3002/api/v1/find-or-create-users
 
 http :3002/api/v1/users/5c77a03bc478e976df90d760
 
@@ -43,3 +46,41 @@ PORT=3002
 
 ************************************************************************************
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+{
+userId: "1",
+rawData: {
+    userInfo: {
+      name: "Fletcher",
+      phone: "3334446666",
+      linkedin: "asdFletcher",
+      facebook: "facebooker",
+      pinterest: "interesting"
+    },
+    socialSelect: {
+      name: true,
+      phone: false,
+      email: false,
+      linkedin: false,
+      pinterest: false,
+      twitter: false,
+      facebook: false,
+      github: false,
+      instagram: false,
+      snapchat: false,
+    },
+    contacts: [],
+    userId: "1",
+    location: {
+      latitude: 0,
+      longitude: 0,
+      time: Date.now(),
+    },
+}
+}
+
+
+
+
+
+

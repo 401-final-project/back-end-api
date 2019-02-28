@@ -19,17 +19,21 @@ router.post('/api/v1/find-or-create-:model', handleFindOrCreate);
 
 async function handleFindOrCreate(request,response,next) {
 
-    const data = await request.model.get(request.body.userId);
+    const data = await request.model.get();
+    console.log(`data: `, data);
 
-    const user = data[0];
-
-    if(user) {
-      response.status(200).json(user)
-    } else {
-      request.model.post(request.body)
-      .then( result => response.status(200).json(result) )
-      .catch( next );
+    for( let i = 0; i < data.length; i++){
+      console.log('🍎', data[i].rawData);
+      console.log('🍊', request.body.rawData);
+      if(data[i].userId.toString() === request.body.userId.toString()){
+        response.status(200).json(data[i])
+        return;
+      }
     }
+
+    request.model.post(request.body)
+    .then( result => response.status(200).json(result) )
+    .catch( next );
 }
 
 router.get('/api/v1/:model/:id', handleGetOne);

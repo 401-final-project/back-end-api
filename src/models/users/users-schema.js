@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 require('mongoose-schema-jsonschema')(mongoose);
 
 const users = mongoose.Schema({
-  name: { type:String, required:true },
+  userId: { type:String, required:true },
+  rawData: { type:Object, required:false },
   // position: { type:String, required:true, uppercase:true, enum:['P','C','1B','2B','3B','SS','LF','RF','CF'] },
   // throws: { type:String, required:true, uppercase:true, enum:['R','L'] },
   // bats: { type:String, required:true, uppercase:true, enum:['R','L'] },
